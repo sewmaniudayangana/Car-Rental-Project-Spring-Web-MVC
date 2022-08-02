@@ -264,6 +264,39 @@
             }
         });
     }
+
+
+    $("#driverUpdateBtn").click(function () {
+        updateDriver();
+    });
+
+    function updateDriver() {
+        var driverob = {
+            did : $("#txtdriverId").val(),
+            dname: $("#txtDriverName").val(),
+            daddress: $("#txtDriverAddress").val(),
+            dcontact: $("#txtDriverContact").val(),
+            dNIC: $("#txtDriverNIC").val(),
+            dlicenceno: $("#txtDriveringlicence").val(),
+            password: $("#txtDriverpasword").val()
+        }
+        $.ajax({
+            url: driverbaseUrl,
+            method: "PUT",
+            contentType: "application/json",
+            data: JSON.stringify( driverob),
+            success: function (res) {
+                if (res.code == 200) { // process is  ok
+                    alert("Successfully Updated");
+                    loadAllDriver();
+                    driverclearForm();
+                }
+            },
+            error: function (ob) {
+                alert(ob.responseJSON.message);
+            }
+        });
+    }
 </script>
 </body>
 </html>
