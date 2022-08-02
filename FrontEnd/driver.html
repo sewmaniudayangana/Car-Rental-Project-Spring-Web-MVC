@@ -38,6 +38,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="driver.html" id="driverBtn">Driver</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="car.html" id="vehicleBtn">Vehicle</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -65,7 +68,7 @@
                         <div class="row">
                             <div class="col-8">
                                 <input aria-label="Search" class="form-control" id="txtdriverId" name="did"
-                                       placeholder="Customer Id" type="search"><br>
+                                       placeholder="Driver Id" type="search"><br>
                             </div>
                             <div class="col">
                                 <button class="btn btn-success" id="searchDriver" type="button">Search Driver</button>
@@ -77,7 +80,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <input class="form-control" id="txtDriverAddress" name=" daddress" placeholder="Driver address"
+                            <input class="form-control" id="txtDriverAddress" name="daddress" placeholder="Driver address"
                                    type="text">
                         </div>
 
@@ -85,11 +88,11 @@
                             <input class="form-control" id="txtDriverContact" name="dcontact" placeholder="Driver contact" type="text">
                         </div>
                         <div class="mb-3">
-                            <input class="form-control" id="txtDriverNIC" name=" dNIC" placeholder="Driver nic"
+                            <input class="form-control" id="txtDriverNIC" name="dNIC" placeholder="Driver nic"
                                    type="text">
                         </div>
                         <div class="mb-3">
-                            <input class="form-control" id="txtDriveringlicence" name=dlicenceno" placeholder="Driving licence"
+                            <input class="form-control" id="txtDriveringlicence" name="dlicenceno" placeholder="Driving licence"
                                    type="text">
                         </div>
                         <div class="mb-3">
@@ -121,7 +124,7 @@
                 <th scope="col">Driver Licence No.</th>
             </tr>
             </thead>
-            <tbody id="cusTable">
+            <tbody id="DriverTable">
 
             </tbody>
         </table>
@@ -131,177 +134,6 @@
 <script src="assests/js/bootstrap.min.js"></script>
 <script src="assests/jQuery/jquery-3.6.0.min.js"></script>
 
-<script>
-
-
-    var baseUrl = "http://localhost:8080/CarRentalSpringMeven_war/driver";
-
-
-    $("#btnSaveCustomer").click(function () {
-        saveCustomer();
-    });
-
-    function saveCustomer() {
-        var data = $("#customerformid").serialize();
-        $.ajax({
-            url: baseUrl,
-            method: "POST",
-            data: data,
-            success: function (res) {
-                if (res.code == 200) {
-                    alert("Successfully Customer Registered");
-                }
-            },
-            error: function (ob) {
-                alert(ob.responseJSON.message);
-            }
-        });
-    }
-
-
-    $("#searchCustomer").click(function () {
-        searchCust();
-
-    });
-
-    function searchCust() {
-        var custId = $("#txtCustomeeId").val();
-        $.ajax({
-            url: baseUrl + "/" + custId,
-            method: "GET",
-            success: function (res) {
-                if (res.code == 200) {
-                    var customer = res.data;
-                    $("#txtCustomeeId").val(customer.cusid);
-                    $("#txtName").val(customer.cusname);
-                    $("#txtAddress").val(customer.cusaddress);
-                    $("#txtCuscontactno").val(customer.cusContactno);
-                    $("#txtCusNIC").val(customer.cusNIC);
-                    $("#txtCusemail").val(customer.cusemail);
-                } else {
-                    clearForm();
-                    loadAllCustomer();
-                }
-            },
-            error: function (ob) {
-                alert(ob.responseJSON.message);
-            }
-        });
-    }
-
-    function clearForm() {
-        $("#txtCustomeeId").val("");
-        $("#txtName").val("");
-        $("#txtAddress").val("");
-        $("#txtCuscontactno").val("");
-        $("#txtCusNIC").val("");
-        $("#txtCusemail").val("");
-        $("#txtCuspasword").val("");
-        $("#txtCustomeeId").focus();
-    }
-
-    //------------------------------------------------------------------------------------------------------------------------------------------
-    $("#btncustomer").click(function () {
-        loadAllCustomer();
-    });
-
-    function loadAllCustomer() {
-        $("#cusTable").empty();
-        $.ajax({
-            url: baseUrl,
-            method: "GET",
-            success: function (resp) {
-                for (const customer of resp.data) {
-                    let row = `<tr><td>${customer.cusid}</td>><td>${customer.cusname}</td>>
-<td>${customer.cusaddress}</td><td>${customer.cusContactno}</td><td>${customer.cusNIC}</td><td>${customer.cusemail}</td></tr>`;
-                    $("#cusTable").append(row);
-                }
-                bindClickEvent();
-                clearForm();
-            },
-            error: function (ob) {
-                alert(ob.responseJSON.message);
-            }
-        });
-    }
-
-    function bindClickEvent() {
-        $("#cusTable>tr").click(function () {
-            //Get values from the selected row
-            let custid = $(this).children().eq(0).text();
-            let custname = $(this).children().eq(1).text();
-            let custaddress = $(this).children().eq(2).text();
-            let custcontact = $(this).children().eq(3).text();
-            let custnic = $(this).children().eq(4).text();
-            let custemail = $(this).children().eq(5).text();
-
-            //Set values to the text-fields
-            $("#txtCustomeeId").val(custid);
-            $("#txtName").val(custname);
-            $("#txtAddress").val(custaddress);
-            $("#txtCuscontactno").val(custcontact);
-            $("#txtCusNIC").val(custnic);
-            $("#txtCusemail").val(custemail);
-        });
-    }
-
-    //--------------------------------------------------------------------------------------------------------------------------
-    $("#customerDeleteBtn").click(function () {
-        deleteCuatomer();
-    });
-
-    function deleteCuatomer() {
-        let customerId = $("#txtCustomeeId").val();
-        $.ajax({
-            url: baseUrl + "?id=" + customerId,
-            method: "DELETE",
-            success: function (res) {
-                if (res.code == 200) {
-                    alert("Customer Successfully Deleted");
-                    loadAllCustomer();
-                    clearForm();
-                }
-            },
-            error: function (ob) {
-                alert(ob.responseJSON.message);
-            }
-        });
-    }
-
-    //-------------------------------------------------------------------------------------------------------------------------
-    $("#customerUpdateBtn").click(function () {
-        updateCustomer();
-    });
-
-    function updateCustomer() {
-        var customerob = {
-            cusid: $("#txtCustomeeId").val(),
-            cusname: $("#txtName").val(),
-            cusaddress: $("#txtAddress").val(),
-            cusContactno: $("#txtCuscontactno").val(),
-            cusNIC: $("#txtCusNIC").val(),
-            cusemail: $("#txtCusemail").val(),
-            cuspasword: $("#txtCuspasword").val()
-        }
-        $.ajax({
-            url: baseUrl,
-            method: "PUT",
-            contentType: "application/json",
-            data: JSON.stringify(customerob),
-            success: function (res) {
-                if (res.code == 200) { // process is  ok
-                    alert("Successfully Updated");
-                    loadAllDriver();
-                    clearForm();
-                }
-            },
-            error: function (ob) {
-                alert(ob.responseJSON.message);
-            }
-        });
-    }
-
-
-</script>
 </body>
 </html>
+
