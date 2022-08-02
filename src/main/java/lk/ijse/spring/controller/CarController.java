@@ -36,4 +36,9 @@ public class CarController {
         carService.DeleteVehicle(id);
         return new ResponseUtil(200, "Deleted",null);
     }
+
+    @GetMapping(path ="/{cid}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil searchVehicle(@PathVariable String id) {
+        return new ResponseUtil(200,"ok",carService.searchVehicle(id));
+    }
 }
