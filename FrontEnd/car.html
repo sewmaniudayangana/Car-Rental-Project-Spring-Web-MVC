@@ -131,5 +131,170 @@
 <script src="assests/js/bootstrap.min.js"></script>
 <script src="assests/jQuery/jquery-3.6.0.min.js"></script>
 
+<script>
+    var vehiclebaseurl = "http://localhost:8080/CarRentalSpringMeven_war/car";
+
+    $("#btnSaveVehicle").click(function () {
+        saveVehicle();
+    });
+
+    function saveVehicle() {
+        var data = $("#vehicleformid").serialize();
+        $.ajax({
+            url: vehiclebaseurl,
+            method: "POST",
+            data: data,
+            success: function (res) {
+                if (res.code == 200) {
+                    alert("Successfully Vehicle Registered");
+                }
+            },
+            error: function (ob) {
+                alert(ob.responseJSON.message);
+            }
+        });
+    }
+
+
+    $("#searchVehicle").click(function () {
+        searchVehicle();
+
+    });
+
+    function  searchVehicle() {
+        var vehicleId = $("#txtvehicleId").val();
+        $.ajax({
+            url: vehiclebaseurl + "/" + vehicleId,
+            method: "GET",
+            success: function (res) {
+                if (res.code == 200) {
+                    var vehicle = res.data;
+                    $("#txtvehicleId").val(vehicle.cid);
+                    $("#txtVehicletype").val(vehicle.ctype);
+                    $("#txtVehiclebrand").val(vehicle.cbrand);
+                    $("#txtVehiclePassanger").val(vehicle.cpassanger);
+                    $("#txtvehiclefueltype").val(vehicle.cfualtype);
+                    $("#txtTransmissiontype").val(vehicle.ctransmissiontype);
+                } else {
+                    vehicleclearForm();
+                    loadAllVehicle();
+                }
+            },
+            error: function (ob) {
+                alert(ob.responseJSON.message);
+            }
+        });
+    }
+
+    function vehicleclearForm() {
+        $("#txtvehicleId").val("");
+        $("#txtVehicletype").val("");
+        $("#txtVehiclebrand").val("");
+        $("#txtVehiclePassanger").val("");
+        $("#txtvehiclefueltype").val("");
+        $("#txtTransmissiontype").val("");
+
+    }
+
+
+    $("#btnVehicle").click(function () {
+        loadAllVehicle();
+    });
+
+    function  loadAllVehicle() {
+        $("#VehicleTable").empty();
+        $.ajax({
+            url: vehiclebaseurl,
+            method: "GET",
+            success: function (resp) {
+                for (const vehicle of resp.data) {
+                    let row = `<tr><td>${vehicle.cid}</td>><td>${vehicle.ctype}</td>> <td>${vehicle.cbrand}</td><td>${vehicle.cpassanger}</td><td>${vehicle.cfualtype}</td><td>${vehicle.ctransmissiontype}</td></tr>`;
+                    $("#VehicleTable").append(row);
+                }
+                vehiclebindClickEvent();
+                vehicleclearForm();
+            },
+            error: function (ob) {
+                alert(ob.responseJSON.message);
+            }
+        });
+    }
+
+    function vehiclebindClickEvent() {
+        $("#VehicleTable>tr").click(function () {
+            //Get values from the selected row
+            let cid = $(this).children().eq(0).text();
+            let ctype = $(this).children().eq(1).text();
+            let cbrand = $(this).children().eq(2).text();
+            let cpassanger = $(this).children().eq(3).text();
+            let cfualtype = $(this).children().eq(4).text();
+            let ctransmissiontype = $(this).children().eq(5).text();
+
+            //Set values to the text-fields
+            $("#txtvehicleId").val(cid);
+            $("#txtVehicletype").val(ctype);
+            $("#txtVehiclebrand").val(cbrand );
+            $("#txtVehiclePassanger").val(cpassanger);
+            $("#txtvehiclefueltype").val(cfualtype);
+            $("#txtTransmissiontype").val(ctransmissiontype);
+        });
+    }
+
+
+    $("#VehicleDeleteBtn").click(function () {
+        deleteVehicle();
+    });
+
+    function  deleteVehicle() {
+        let vehicleId = $("#txtvehicleId").val();
+        $.ajax({
+            url: vehiclebaseurl + "?cid=" + vehicleId,
+            method: "DELETE",
+            success: function (res) {
+                if (res.code == 200) {
+                    alert("Vehicle Successfully Deleted");
+                    loadAllVehicle();
+                    vehicleclearForm();
+                }
+            },
+            error: function (ob) {
+                alert(ob.responseJSON.message);
+            }
+        });
+    }
+
+
+    $("#VehicleUpdateBtn").click(function () {
+        updateVehicle();
+    });
+
+    function   updateVehicle() {
+        var vehicleob = {
+            cid : $("#txtvehicleId").val(),
+            ctype: $("#txtVehiclebrand").val(),
+            cbrand: $("#txtVehiclebrand").val(),
+            cpassanger: $("#txtVehiclePassanger").val(),
+            cfualtype: $("#txtvehiclefueltype").val(),
+            ctransmissiontype: $("#txtTransmissiontype").val(),
+
+        }
+        $.ajax({
+            url: vehiclebaseurl,
+            method: "PUT",
+            contentType: "application/json",
+            data: JSON.stringify( vehicleob),
+            success: function (res) {
+                if (res.code == 200) { // process is  ok
+                    alert("Successfully Updated");
+                    loadAllVehicle();
+                    vehicleclearForm();
+                }
+            },
+            error: function (ob) {
+                alert(ob.responseJSON.message);
+            }
+        });
+    }
+</script>
 </body>
 </html>
