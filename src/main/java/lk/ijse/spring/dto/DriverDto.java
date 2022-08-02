@@ -10,11 +10,11 @@ import lombok.ToString;
 @Data
 @ToString
 public class DriverDto {
-    private String Did;
-    private String Dname;
-    private String Daddress;
-    private String Dcontact;
-    private String DNIC;
-    private String Dlicenceno;
+    private String did;
+    private String dname;
+    private String daddress;
+    private String dcontact;
+    private String dNIC;
+    private String dlicenceno;
     private String password;
 }

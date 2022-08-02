@@ -27,10 +27,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-1 mb-lg-2">
                 <li class="nav-item">
+                    <a href="#" class="nav-link" id="topic">Easy Car</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="index.html" id="homeBtn">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="customer.html" id="customerBtn">Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="driver.html" id="driverBtn">Driver</a>
                 </li>
             </ul>
         </div>
@@ -39,12 +45,12 @@
 <div class="container" id="leftside">
     <div class="row">
         <div class="col">
-            <h3 class="text-secondary">View Customer Form</h3>
+            <h3 class="text-secondary">View Driver Form</h3>
             <div class="mb-3">
                 <div class="card" style="width: 30rem;">
-                    <img alt="Error loading image" class="card-img-top" src="assests/images/CusImg.png">
+                    <img alt="Error loading image" class="card-img-top" src="assests/images/driverImg.jpg">
                     <div class="card-body">
-                        <h5 class="card-title">Add Customer Details</h5>
+                        <h5 class="card-title">Add Driver Details</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card's content.</p>
                     </div>
@@ -54,47 +60,46 @@
         <div class="col">
             <section class="row mt-3 justify-content-around">
 
-                <form id="customerformid">
+                <form id="driverformid">
                     <div class="col-12 col-md-12">
                         <div class="row">
                             <div class="col-8">
-                                <input aria-label="Search" class="form-control" id="txtCustomeeId" name="cusid"
+                                <input aria-label="Search" class="form-control" id="txtdriverId" name="did"
                                        placeholder="Customer Id" type="search"><br>
                             </div>
                             <div class="col">
-                                <button class="btn btn-success" id="searchCustomer" type="button">Search Customer</button>
+                                <button class="btn btn-success" id="searchDriver" type="button">Search Driver</button>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <input class="form-control" id="txtName" name="cusname" placeholder="Customer Name"
+                            <input class="form-control" id="txtDriverName" name="dname" placeholder="Driver Name"
                                    type="text">
                         </div>
 
                         <div class="mb-3">
-                            <input class="form-control" id="txtAddress" name="cusaddress" placeholder="Customer address"
+                            <input class="form-control" id="txtDriverAddress" name=" daddress" placeholder="Driver address"
                                    type="text">
                         </div>
 
                         <div class="mb-3">
-                            <input class="form-control" id="txtCuscontactno" name="cusContactno;"
-                                   placeholder="Customer contact" type="text">
+                            <input class="form-control" id="txtDriverContact" name="dcontact" placeholder="Driver contact" type="text">
                         </div>
                         <div class="mb-3">
-                            <input class="form-control" id="txtCusNIC" name="cusNIC" placeholder="Customer nic"
+                            <input class="form-control" id="txtDriverNIC" name=" dNIC" placeholder="Driver nic"
                                    type="text">
                         </div>
                         <div class="mb-3">
-                            <input class="form-control" id="txtCusemail" name="cusemail" placeholder="Customer email"
+                            <input class="form-control" id="txtDriveringlicence" name=dlicenceno" placeholder="Driving licence"
                                    type="text">
                         </div>
                         <div class="mb-3">
-                            <input class="form-control" id="txtCuspasword" name="cuspasword"
-                                   placeholder="Customer password" type="password">
+                            <input class="form-control" id="txtDriverpasword" name="password"
+                                   placeholder="Driver password" type="password">
                         </div>
-                        <button class="btn btn-success " id="btnSaveCustomer" type="button">Add Customer</button>
-                        <button class="btn btn-info" id="btncustomer" type="button">Customer</button>
-                        <button class="btn btn-primary" id="customerUpdateBtn" type="button">Update Customer</button>
-                        <button class="btn btn-danger" id="customerDeleteBtn" type="button">Delete Customer</button>
+                        <button class="btn btn-success " id="btnSaveDriver" type="button">Add Driver</button>
+                        <button class="btn btn-info" id="btndriver" type="button">Driver</button>
+                        <button class="btn btn-primary" id="driverUpdateBtn" type="button">Update Driver</button>
+                        <button class="btn btn-danger" id="driverDeleteBtn" type="button">Delete Driver</button>
                     </div>
                 </form>
             </section>
@@ -108,12 +113,12 @@
         <table class="table table-bordered table-hover mt-3">
             <thead class="bg-danger text-white">
             <tr class="table-success">
-                <th scope="col">Id</th>
-                <th scope="col">Customer Name</th>
-                <th scope="col">Address</th>
-                <th scope="col">Contact No</th>
-                <th scope="col">NIC</th>
-                <th scope="col">Email</th>
+                <th scope="col">Driver Id</th>
+                <th scope="col">Driver Name</th>
+                <th scope="col">Driver Address</th>
+                <th scope="col">Driver Contact</th>
+                <th scope="col">Driver NIC</th>
+                <th scope="col">Driver Licence No.</th>
             </tr>
             </thead>
             <tbody id="cusTable">
@@ -129,7 +134,7 @@
 <script>
 
 
-    var baseUrl = "http://localhost:8080/CarRentalSpringMeven_war/customer";
+    var baseUrl = "http://localhost:8080/CarRentalSpringMeven_war/driver";
 
 
     $("#btnSaveCustomer").click(function () {
