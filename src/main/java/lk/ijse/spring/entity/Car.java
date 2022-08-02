@@ -15,17 +15,11 @@ import javax.persistence.Id;
 @ToString
 public class Car {
     @Id
-    private String Cid;
-    private String Ccolor;
-    private String Ctype;
-    private String Cregno;
-    private String Cfutype;
-    private String Cbrand;
-    private String Cnopasenger;
-    private String Cavailableonot;
-    private String Cprice;
-    private String Cextrakmfee;
-    private String Cdailyrate;
-    private String Cmonthlyrate;
+    private String cid;
+    private String ctype;
+    private String cbrand;
+    private int cpassanger;
+    private String cfualtype;
+    private String ctransmissiontype;
 
 }
