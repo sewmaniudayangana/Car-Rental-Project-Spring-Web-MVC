@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Easy Car Rental</title>
+    <link href="assests/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assests/fonts/css/all.css" rel="stylesheet">
+    <link href="assests/styles/style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <style>
+        .navbar{
+            height: 45px;
+        }
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+        <h3> Easy Car Rental</h3>
+        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"
+                data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-1 mb-lg-2">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="topic">Easy Car</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html" id="homeBtn">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="customer.html" id="customerBtn">Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="driver.html" id="driverBtn">Driver</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="car.html" id="vehicleBtn">Vehicle</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container" id="leftside">
+    <div class="row">
+        <div class="col">
+            <h3 class="text-secondary">View Vehicle Form</h3>
+            <div class="mb-3">
+                <div class="card" style="width: 30rem;">
+                    <img alt="Error loading image" class="card-img-top" src="assests/images/vehicleform.jpg">
+                    <div class="card-body">
+                        <h5 class="card-title">Add Vehicle Details</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <section class="row mt-3 justify-content-around">
+
+                <form id="vehicleformid">
+                    <div class="col-12 col-md-12">
+                        <div class="row">
+                            <div class="col-8">
+                                <input aria-label="Search" class="form-control" id="txtvehicleId" name="cid"
+                                       placeholder="Vehicle Id" type="search"><br>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-success" id="searchVehicle" type="button">Search Vehicle</button>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" id="txtVehicletype" name="ctype" placeholder="Vehicle Type"
+                                   type="text">
+                        </div>
+
+                        <div class="mb-3">
+                            <input class="form-control" id="txtVehiclebrand" name="cbrand" placeholder="Vehicle Brand"
+                                   type="text">
+                        </div>
+
+                        <div class="mb-3">
+                            <input class="form-control" id="txtVehiclePassanger" name="cpassanger" placeholder="No. of passangers" type="text">
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" id="txtvehiclefueltype" name="cfualtype" placeholder="fuel type"
+                                   type="text">
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" id="txtTransmissiontype" name="ctransmissiontype" placeholder="transmission type"
+                                   type="text">
+                        </div>
+
+                        <button class="btn btn-success " id="btnSaveVehicle" type="button">Add Vehicle</button>
+                        <button class="btn btn-info" id="btnVehicle" type="button">Vehicle</button>
+                        <button class="btn btn-primary" id="VehicleUpdateBtn" type="button">Update Vehicle</button>
+                        <button class="btn btn-danger" id="VehicleDeleteBtn" type="button">Delete Vehicle</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+<section class="row ">
+    <div class="col">
+        <table class="table table-bordered table-hover mt-3">
+            <thead class="bg-danger text-white">
+            <tr class="table-success">
+                <th scope="col">Vehicle Id</th>
+                <th scope="col">Vehicle Type</th>
+                <th scope="col">Vehicle Brand</th>
+                <th scope="col">passengers</th>
+                <th scope="col">fuel type</th>
+                <th scope="col">transmission type</th>
+            </tr>
+            </thead>
+            <tbody id="VehicleTable">
+
+            </tbody>
+        </table>
+    </div>
+</section>
+</main>
+<script src="assests/js/bootstrap.min.js"></script>
+<script src="assests/jQuery/jquery-3.6.0.min.js"></script>
+
+</body>
+</html>
