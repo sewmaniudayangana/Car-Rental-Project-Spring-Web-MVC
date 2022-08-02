@@ -241,6 +241,29 @@
             $("#txtDriveringlicence").val(dlicenceno);
         });
     }
+
+
+    $("#driverDeleteBtn").click(function () {
+        deleteDriver();
+    });
+
+    function deleteDriver() {
+        let driverId = $("#txtdriverId").val();
+        $.ajax({
+            url: driverbaseUrl + "?did=" + driverId,
+            method: "DELETE",
+            success: function (res) {
+                if (res.code == 200) {
+                    alert("Driver Successfully Deleted");
+                    loadAllDriver()
+                    driverclearForm();
+                }
+            },
+            error: function (ob) {
+                alert(ob.responseJSON.message);
+            }
+        });
+    }
 </script>
 </body>
 </html>
