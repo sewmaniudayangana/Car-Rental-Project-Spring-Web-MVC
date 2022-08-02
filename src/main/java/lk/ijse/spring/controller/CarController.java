@@ -24,4 +24,10 @@ public class CarController {
         carService.VehicleSave(Car);
         return new ResponseUtil(200,"Save", null);
     }
+
+    @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil updateVehicle(@RequestBody CarDto Car) {
+        carService.updateVehicle(Car);
+        return new ResponseUtil(200,"updated",null);
+    }
 }
