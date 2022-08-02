@@ -221,6 +221,26 @@
             }
         });
     }
+
+    function  driverbindClickEvent() {
+        $("#DriverTable>tr").click(function () {
+            //Get values from the selected row
+            let did = $(this).children().eq(0).text();
+            let dname = $(this).children().eq(1).text();
+            let daddress = $(this).children().eq(2).text();
+            let dcontact = $(this).children().eq(3).text();
+            let dNIC = $(this).children().eq(4).text();
+            let dlicenceno = $(this).children().eq(5).text();
+
+            //Set values to the text-fields
+            $("#txtdriverId").val(did);
+            $("#txtDriverName").val(dname);
+            $("#txtDriverAddress").val(daddress);
+            $("#txtDriverContact").val(dcontact);
+            $("#txtDriverNIC").val(dNIC);
+            $("#txtDriveringlicence").val(dlicenceno);
+        });
+    }
 </script>
 </body>
 </html>
