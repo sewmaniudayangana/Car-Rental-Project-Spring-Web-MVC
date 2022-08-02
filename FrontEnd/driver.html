@@ -133,7 +133,32 @@
 </main>
 <script src="assests/js/bootstrap.min.js"></script>
 <script src="assests/jQuery/jquery-3.6.0.min.js"></script>
+<script>
+    var driverbaseUrl = "http://localhost:8080/CarRentalSpringMeven_war/driver";
 
+    $("#btnSaveDriver").click(function () {
+        saveDriver();
+    });
+
+    function saveDriver() {
+        var data = $("#driverformid").serialize();
+        $.ajax({
+            url: driverbaseUrl,
+            method: "POST",
+            data: data,
+            success: function (res) {
+                if (res.code == 200) {
+                    alert("Successfully Driver Registered");
+                }
+            },
+            error: function (ob) {
+                alert(ob.responseJSON.message);
+            }
+        });
+    }
+
+    
+</script>
 </body>
 </html>
 
