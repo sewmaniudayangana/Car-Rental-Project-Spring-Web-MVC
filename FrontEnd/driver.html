@@ -198,6 +198,29 @@
         $("#txtDriverpasword").val("");
 
     }
+
+    $("#btndriver").click(function () {
+        loadAllDriver();
+    });
+
+    function loadAllDriver() {
+        $("#cusTable").empty();
+        $.ajax({
+            url: driverbaseUrl,
+            method: "GET",
+            success: function (resp) {
+                for (const driver of resp.data) {
+                    let row = `<tr><td>${driver.did}</td>><td>${driver.dname}</td>> <td>${driver.daddress}</td><td>${driver.dcontact}</td><td>${driver.dNIC}</td><td>${driver.dlicenceno}</td></tr>`;
+                    $("#cusTable").append(row);
+                }
+                driverbindClickEvent();
+                driverclearForm();
+            },
+            error: function (ob) {
+                alert(ob.responseJSON.message);
+            }
+        });
+    }
 </script>
 </body>
 </html>
