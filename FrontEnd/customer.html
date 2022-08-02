@@ -3,128 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <title>Rolex Watch Complex</title>
-    <link rel="stylesheet" href="assests/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assests/fonts/css/all.css">
-    <link rel="stylesheet" href="assests/styles/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assests/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assests/fonts/css/all.css" rel="stylesheet">
+    <link href="assests/styles/style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <style>
+        .navbar{
+            height: 45px;
+        }
 
-
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <h3> Easy Car Rental</h3>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html" id="homeBtn">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="customer.html" id="customerBtn">Customer</a>
-                    </li>
-                    
-                </ul>
-                <form class="d-flex">
-                    <button class="btn btn-outline-success me-2" type="button">Sign Up</button>
-                    <button class="btn btn-sm btn-outline-secondary" type="button">Logout</button>
-                </form>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+        <h3> Easy Car Rental</h3>
+        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"
+                data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-1 mb-lg-2">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html" id="homeBtn">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="customer.html" id="customerBtn">Customer</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container" id="leftside">
+    <div class="row">
+        <div class="col">
+            <h3 class="text-secondary">View Customer Form</h3>
+            <div class="mb-3">
+                <div class="card" style="width: 30rem;">
+                    <img alt="Error loading image" class="card-img-top" src="assests/images/CusImg.png">
+                    <div class="card-body">
+                        <h5 class="card-title">Add Customer Details</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
-    <section id="customerpage">
-        <section class="container-fluid mt-3">
+        <div class="col">
             <section class="row mt-3 justify-content-around">
-                <div class="col-12 col-md-4">
-                    <h1 class="text-secondary">View Customer Form</h1>
-                    <div class="mb-3">
-                        <form class="d-flex">
 
-                        </form>
-                    </div>
-                    <div class="mb-3">
-                        <div class="card" style="width: 30rem;">
-                            <img src="assests/images/CusImg.png" class="card-img-top" alt="Error loading image">
-                            <div class="card-body">
-                                <h5 class="card-title">Add Customer Details</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <form id="customerformid">
+                    <div class="col-12 col-md-12">
+                        <div class="row">
+                            <div class="col-8">
+                                <input aria-label="Search" class="form-control" id="txtCustomeeId" name="cusid"
+                                       placeholder="Customer Id" type="search"><br>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-success" id="searchCustomer" type="button">Search Customer</button>
                             </div>
                         </div>
+                        <div class="mb-3">
+                            <input class="form-control" id="txtName" name="cusname" placeholder="Customer Name"
+                                   type="text">
+                        </div>
+
+                        <div class="mb-3">
+                            <input class="form-control" id="txtAddress" name="cusaddress" placeholder="Customer address"
+                                   type="text">
+                        </div>
+
+                        <div class="mb-3">
+                            <input class="form-control" id="txtCuscontactno" name="cusContactno;"
+                                   placeholder="Customer contact" type="text">
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" id="txtCusNIC" name="cusNIC" placeholder="Customer nic"
+                                   type="text">
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" id="txtCusemail" name="cusemail" placeholder="Customer email"
+                                   type="text">
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" id="txtCuspasword" name="cuspasword"
+                                   placeholder="Customer password" type="password">
+                        </div>
+                        <button class="btn btn-success " id="btnSaveCustomer" type="button">Add Customer</button>
+                        <button class="btn btn-info" id="btncustomer" type="button">Customer</button>
+                        <button class="btn btn-primary" id="customerUpdateBtn" type="button">Update Customer</button>
+                        <button class="btn btn-danger" id="customerDeleteBtn" type="button">Delete Customer</button>
                     </div>
-                </div>
-
-
-                        <form id="customerformid">
-                            <input class="form-control me-2" type="search" placeholder="Customer Id" aria-label="Search" id="txtCustomeeId" name="cusid">
-                            <button class="btn btn-success" type="button" id="searchCustomer">Search Customer</button>
-                            <div class="col-12 col-md-5">
-                                <button class="btn btn-success" type="button" id="btncustomer">Show Customer</button>
-                                <div>
-                            
-                            <div class="mb-3">
-                                <label class="form-label" for="txtName">Customer Name</label>
-                                <input class="form-control" id="txtName" placeholder="Customer Name" type="text"  name="cusname">
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="form-label" for="txtAddress">Customer Address</label>
-                                <input class="form-control" id="txtAddress" placeholder="Customer Contact" type="text"  name="cusaddress">
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="form-label" for="txtCuscontactno">Customer Contact </label>
-                                <input class="form-control" id="txtCuscontactno" placeholder="Customer email" type="text" name="cusContactno;">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="txtCusNIC">Customer NIC</label>
-                                <input class="form-control" id="txtCusNIC" placeholder="Customer nic" type="text" name="cusNIC">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="txtCusemail">Customer Email</label>
-                                <input class="form-control" id="txtCusemail" placeholder="Customer nic" type="text" name="cusemail">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="txtCuspasword">Customer Password</label>
-                                <input class="form-control" id="txtCuspasword" placeholder="Customer nic" type="password" name="cuspasword">
-                            </div>
-
-                                </div>
-                            </div>
-                            <button class="btn btn-danger" type="button" id="customerDeleteBtn">Customer Delete</button>
-                            <button class="btn btn-success" type="button" id="customerUpdateBtn">Customer Update</button>
-                            <button class="btn btn-primary " type="button"  id="btnSaveCustomer">Add New Customer</button>
-                        </form>
-
-                    </div>
-                </div>
+                </form>
             </section>
-
-            <section class="row mt-4">
-                <div class="col">
-                    <table class="table table-bordered table-hover mt-3">
-                        <thead class="bg-danger text-white">
-                        <tr class="table-success">
-                            <th scope="col">Id</th>
-                            <th scope="col">Customer Name</th>
-                            <th scope="col">Address</th>
-                            <th scope="col">Contact No</th>
-                            <th scope="col">NIC</th>
-                            <th scope="col">Email</th>
-                        </tr>
-                        </thead>
-                        <tbody id="cusTable">
-
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-        </section>
-    </section>
+        </div>
+    </div>
+</div>
 
 
+<section class="row ">
+    <div class="col">
+        <table class="table table-bordered table-hover mt-3">
+            <thead class="bg-danger text-white">
+            <tr class="table-success">
+                <th scope="col">Id</th>
+                <th scope="col">Customer Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Contact No</th>
+                <th scope="col">NIC</th>
+                <th scope="col">Email</th>
+            </tr>
+            </thead>
+            <tbody id="cusTable">
+
+            </tbody>
+        </table>
+    </div>
+</section>
 </main>
 <script src="assests/js/bootstrap.min.js"></script>
 <script src="assests/jQuery/jquery-3.6.0.min.js"></script>
@@ -132,59 +129,61 @@
 <script>
 
 
-    var baseUrl="http://localhost:8080/Car_Rental_Spring_Web_MVC_war/customer";
+    var baseUrl = "http://localhost:8080/CarRentalSpringMeven_war/customer";
 
 
-$("#btnSaveCustomer").click(function(){
-    saveCustomer();
-  });
-
-  function saveCustomer(){
-    var data=$("#customerformid").serialize();
-    $.ajax({
-      url:baseUrl ,
-      method:"POST",
-      data: data,
-      success: function (res){
-        if (res.code==200){
-          alert("Successfully Customer Registered");
-        }
-      },
-      error: function (ob){
-        alert(ob.responseJSON.message);
-      }
+    $("#btnSaveCustomer").click(function () {
+        saveCustomer();
     });
-  }
 
-  
-    $("#searchCustomer").click(function (){
+    function saveCustomer() {
+        var data = $("#customerformid").serialize();
+        $.ajax({
+            url: baseUrl,
+            method: "POST",
+            data: data,
+            success: function (res) {
+                if (res.code == 200) {
+                    alert("Successfully Customer Registered");
+                }
+            },
+            error: function (ob) {
+                alert(ob.responseJSON.message);
+            }
+        });
+    }
+
+
+    $("#searchCustomer").click(function () {
         searchCust();
 
     });
-    function searchCust(){
-        var custId=$("#txtCustomeeId").val();
+
+    function searchCust() {
+        var custId = $("#txtCustomeeId").val();
         $.ajax({
-            url:baseUrl +"/"+ custId,
-            method:"GET",
-            success: function (res){
-                if (res.code==200){
-                    var customer=res.data;
+            url: baseUrl + "/" + custId,
+            method: "GET",
+            success: function (res) {
+                if (res.code == 200) {
+                    var customer = res.data;
                     $("#txtCustomeeId").val(customer.cusid);
                     $("#txtName").val(customer.cusname);
                     $("#txtAddress").val(customer.cusaddress);
                     $("#txtCuscontactno").val(customer.cusContactno);
                     $("#txtCusNIC").val(customer.cusNIC);
                     $("#txtCusemail").val(customer.cusemail);
-                }else {
+                } else {
                     clearForm();
                     loadAllCustomer();
                 }
             },
-            error:function (ob){
+            error: function (ob) {
                 alert(ob.responseJSON.message);
             }
         });
     }
+
     function clearForm() {
         $("#txtCustomeeId").val("");
         $("#txtName").val("");
@@ -195,19 +194,21 @@ $("#btnSaveCustomer").click(function(){
         $("#txtCuspasword").val("");
         $("#txtCustomeeId").focus();
     }
+
     //------------------------------------------------------------------------------------------------------------------------------------------
-    $("#btncustomer").click(function (){
+    $("#btncustomer").click(function () {
         loadAllCustomer();
     });
-    function loadAllCustomer(){
+
+    function loadAllCustomer() {
         $("#cusTable").empty();
         $.ajax({
             url: baseUrl,
             method: "GET",
-            success:function (resp){
+            success: function (resp) {
                 for (const customer of resp.data) {
                     let row = `<tr><td>${customer.cusid}</td>><td>${customer.cusname}</td>>
-<td>${customer.cusaddress}</td><td>${customer.cusContactno}</td><td>${customer.cusNIC}</td><td>${customer.cusemail}</td><td></td></tr>`;
+<td>${customer.cusaddress}</td><td>${customer.cusContactno}</td><td>${customer.cusNIC}</td><td>${customer.cusemail}</td></tr>`;
                     $("#cusTable").append(row);
                 }
                 bindClickEvent();
@@ -218,12 +219,13 @@ $("#btnSaveCustomer").click(function(){
             }
         });
     }
+
     function bindClickEvent() {
         $("#cusTable>tr").click(function () {
             //Get values from the selected row
             let custid = $(this).children().eq(0).text();
             let custname = $(this).children().eq(1).text();
-            let custaddress=$(this).children().eq(2).text();
+            let custaddress = $(this).children().eq(2).text();
             let custcontact = $(this).children().eq(3).text();
             let custnic = $(this).children().eq(4).text();
             let custemail = $(this).children().eq(5).text();
@@ -237,17 +239,19 @@ $("#btnSaveCustomer").click(function(){
             $("#txtCusemail").val(custemail);
         });
     }
+
     //--------------------------------------------------------------------------------------------------------------------------
     $("#customerDeleteBtn").click(function () {
         deleteCuatomer();
     });
-    function deleteCuatomer(){
+
+    function deleteCuatomer() {
         let customerId = $("#txtCustomeeId").val();
         $.ajax({
-            url:baseUrl +"?id="+customerId,
-            method:"DELETE",
-            success:function (res){
-                if (res.code==200){
+            url: baseUrl + "?id=" + customerId,
+            method: "DELETE",
+            success: function (res) {
+                if (res.code == 200) {
                     alert("Customer Successfully Deleted");
                     loadAllCustomer();
                     clearForm();
@@ -263,6 +267,7 @@ $("#btnSaveCustomer").click(function(){
     $("#customerUpdateBtn").click(function () {
         updateCustomer();
     });
+
     function updateCustomer() {
         var customerob = {
             cusid: $("#txtCustomeeId").val(),
