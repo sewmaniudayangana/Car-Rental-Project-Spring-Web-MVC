@@ -30,4 +30,10 @@ public class CarController {
         carService.updateVehicle(Car);
         return new ResponseUtil(200,"updated",null);
     }
+
+    @DeleteMapping(params = {"cid"},produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil DeleteVehicle(@RequestParam String id){
+        carService.DeleteVehicle(id);
+        return new ResponseUtil(200, "Deleted",null);
+    }
 }
