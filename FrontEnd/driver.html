@@ -157,7 +157,36 @@
         });
     }
 
-    
+
+    $("#searchDriver").click(function () {
+        searchDriver();
+
+    });
+
+    function  searchDriver() {
+        var driverId = $("#txtdriverId").val();
+        $.ajax({
+            url: driverbaseUrl + "/" + driverId,
+            method: "GET",
+            success: function (res) {
+                if (res.code == 200) {
+                    var driver = res.data;
+                    $("#txtdriverId").val(driver.did);
+                    $("#txtDriverName").val(driver.dname);
+                    $("#txtDriverAddress").val(driver.daddress);
+                    $("#txtDriverContact").val(driver.dcontact);
+                    $("#txtDriverNIC").val(driver.dNIC);
+                    $("#txtDriveringlicence").val(driver.dlicenceno);
+                } else {
+                    driverclearForm();
+                    loadAllDriver();
+                }
+            },
+            error: function (ob) {
+                alert(ob.responseJSON.message);
+            }
+        });
+    }
 </script>
 </body>
 </html>
